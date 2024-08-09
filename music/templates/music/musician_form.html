@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<h1  style="width:50%;margin:auto">{% if form.instance.pk %}Edit Musician{% else %}Add Musician{% endif %}</h1>
+<form method="post" style="width:50%; height:400px;margin:auto">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">Save</button>
+
+</form>
+
+{%endblock%}

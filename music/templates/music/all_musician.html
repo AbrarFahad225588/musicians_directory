@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Musicians List</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Musician Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone NUmber</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for musician in musicians %}
+
+            <tr>
+                <th scope="row">{{ musician.id }}</td>
+                <td>{{ musician.first_name }} {{ musician.last_name }}</td>
+                <td>{{ musician.email }}</td>
+                <td>{{ musician.phone_number}}</td>
+                
+                <td>
+                  <a class="btn btn-warning" href="{% url 'edit_musician' musician.id %}">Edit</a>
+                  <a class="btn btn-danger" href="{% url 'delete_musician' musician.id %}">Delete</a>
+                </td>
+            </tr>
+      
+    {% endfor %}
+    </tbody>
+  </table>
+{%endblock%}
